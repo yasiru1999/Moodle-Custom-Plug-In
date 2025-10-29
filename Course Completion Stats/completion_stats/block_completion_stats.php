@@ -87,7 +87,7 @@ class block_completion_stats extends block_base {
         global $DB;
 
         // Courses we are tracking
-        $courses = $DB->get_records_sql("SELECT id, fullname FROM {course} WHERE fullname IN ('Mandatory Learning', 'ISO 27001')");
+        $courses = $DB->get_records_sql("SELECT id, fullname FROM {course} WHERE fullname IN ('Course1', 'Course2')");
         $courseids = array_keys($courses);
 
         // Get all active users

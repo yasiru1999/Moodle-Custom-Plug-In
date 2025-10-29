@@ -168,17 +168,17 @@ class block_mylearninghours extends block_base {
         $excluded1 = $DB->get_fieldset_sql($sql1, ['prefix' => 'Course %']);
     
         // "Request a Course"
-        $excluded2 = $DB->get_fieldset_sql("SELECT id FROM {course} WHERE shortname = :short", ['short' => 'Request a Course']);
+        $excluded2 = $DB->get_fieldset_sql("SELECT id FROM {course} WHERE shortname = :short", ['short' => 'Course1']);
     
         // Courses in category with ID number 'udemy001'
-        $catid = $DB->get_field('course_categories', 'id', ['idnumber' => 'udemy001']);
+        $catid = $DB->get_field('course_categories', 'id', ['idnumber' => 'CourseCategory1']);
         $excluded3 = [];
         if ($catid) {
             $excluded3 = $DB->get_fieldset_select('course', 'id', 'category = :catid', ['catid' => $catid]);
         }
 
         // Exclude "Getting Started" course by shortname or fullname
-        $excluded4 = $DB->get_fieldset_sql("SELECT id FROM {course} WHERE shortname = :short", ['short' => 'Getting Started']);
+        $excluded4 = $DB->get_fieldset_sql("SELECT id FROM {course} WHERE shortname = :short", ['short' => 'Course2']);
     
         // Merge all
         $excluded = array_merge($excluded1, $excluded2, $excluded3, $excluded4);
