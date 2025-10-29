@@ -1,0 +1,56 @@
+/* File: blocks/mylearninghours/styles.css */
+
+.learning-hours-block {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.total-hours {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.reward-info {
+    margin-top: 10px;
+}
+.reward-icon {
+    font-size: 2em;
+}
+.reward-name {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-left: 8px;
+}
+.reward-message {
+    margin-top: 5px;
+    font-style: italic;
+    color: #555;
+}
+.course-hours-breakdown h3 {
+    margin-top: 15px;
+    font-size: 1.3em;
+    color: #333;
+}
+.course-hours-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.course-hours-item {
+    padding: 6px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1em;
+}
+.course-hours-item:nth-child(odd)  { background: #fafafa; }
+.course-hours-item:nth-child(even) { background: #fff; }
+.course-hours-item:hover {
+    background-color: #e6f7ff;
+    transition: background 0.3s ease;
+}
+@media (max-width: 600px) {
+    .total-hours { font-size: 1em; }
+    .reward-icon { font-size: 1.5em; }
+}
