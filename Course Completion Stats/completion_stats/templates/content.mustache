@@ -1,0 +1,65 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Template for block_completion_stats content.
+
+    @package    block_completion_stats
+    @copyright  2025, Yasiru Navoda Jayasekara
+}}
+
+<div class="block-completion-stats">
+    {{#hasdata}}
+    <div class="completion-stats-container">
+        
+        <!-- Pie Chart: Completed vs Remaining -->
+        <div class="chart-container">
+            <canvas id="{{chartid}}" width="400" height="400"></canvas>
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="summary-stats">
+            <div class="stat-item completed-stat">
+                <span class="stat-icon">✅</span>
+                <div class="stat-details">
+                    <span class="stat-label">{{#str}}completed, block_completion_stats{{/str}}</span>
+                    <span class="stat-value">{{completed}} ({{completed_percent}}%)</span>
+                </div>
+            </div>
+            <div class="stat-item remaining-stat">
+                <span class="stat-icon">⏳</span>
+                <div class="stat-details">
+                    <span class="stat-label">{{#str}}notcompleted, block_completion_stats{{/str}}</span>
+                    <span class="stat-value">{{remaining}} ({{remaining_percent}}%)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Breakdown -->
+        <div class="breakdown-container">
+            <h4 class="breakdown-title">{{#str}}detailedbreakdown, block_completion_stats{{/str}}</h4>
+            <div class="breakdown-list">
+                {{#breakdown}}
+                <div class="breakdown-item {{colorclass}}">
+                    <span class="breakdown-icon">{{icon}}</span>
+                    <div class="breakdown-details">
+                        <span class="breakdown-label">{{label}}</span>
+                        <span class="breakdown-value">{{count}} ({{percent}}%)</span>
+                    </div>
+                </div>
+                {{/breakdown}}
+            </div>
+        </div>
+
+        <!-- Total Users -->
+        <div class="total-users">
+            <strong>{{#str}}totalusers, block_completion_stats{{/str}}:</strong> {{total}}
+        </div>
+    </div>
+    {{/hasdata}}
+    
+    {{^hasdata}}
+    <div class="alert alert-info">
+        {{#str}}nodata, block_completion_stats{{/str}}
+    </div>
+    {{/hasdata}}
+</div>
